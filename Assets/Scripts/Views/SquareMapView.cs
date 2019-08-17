@@ -9,12 +9,16 @@ namespace Views
         {
             int i = 0;
             int j = 0;
+            int rowcount = (int) Mathf.Sqrt(cellList.Count);
+            int size = Screen.width / rowcount;
+            Vector2 cellSize = new Vector2(size, size);
             foreach (var cellView in cellList)
             {
-                Vector2 nextPos = new Vector2(-250 + i * 250, -250 + j * 250);
+                cellView.RectTransform.sizeDelta = cellSize;
+                Vector2 nextPos = new Vector2(-Screen.width / 2 + size * (0.5f + i), -Screen.height / 2 + 200 + size *(0.5f + j));
                 cellView.RectTransform.localPosition = nextPos;
                 i++;
-                if (i % 3 == 0)
+                if (i % rowcount == 0)
                 {
                     i = 0;
                     j++;

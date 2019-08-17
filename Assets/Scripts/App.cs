@@ -13,7 +13,7 @@ namespace CrazyPandaTest
 
         private void Awake()
         {
-            StartGame(new Game(9,3,20));
+            StartGame(new Game(100,3,20));
         }
 
         private void StartGame(Game game)
