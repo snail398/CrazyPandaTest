@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
+using System;
 
 namespace Models
 {
+    [Serializable]
     public class Artefact
     {
-        [SerializeField] private readonly int _cost;
-        [SerializeField] private readonly int _size;
+        [SerializeField] private int _cost;
+        [SerializeField] private int _size;
 
         public Artefact(int cost, int size = 1)
         {

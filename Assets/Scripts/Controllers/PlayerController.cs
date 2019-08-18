@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Models;
+using System;
 
 namespace Controllers
 {
@@ -31,6 +32,11 @@ namespace Controllers
         public void TakeArtefact(Artefact artefact)
         {
             _player.TakeArtefact(artefact);
+        }
+
+        public void StartRender()
+        {
+            _player.StartRender();
         }
     }
 }

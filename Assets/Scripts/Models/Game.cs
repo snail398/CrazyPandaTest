@@ -2,10 +2,11 @@
 using System;
 namespace Models
 {
+    [Serializable]
     public class Game
     {
-        [SerializeField] private readonly Map _map;
-        [SerializeField] private readonly Player _player;
+        [SerializeField] private Map _map;
+        [SerializeField] private Player _player;
 
         public Game(int cellCount, int cellDeep, int startShovelCount)
         {

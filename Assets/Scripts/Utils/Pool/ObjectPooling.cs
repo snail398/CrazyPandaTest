@@ -11,11 +11,11 @@ namespace Utils
         #region Data
         private List<PoolObject> _objects;
         private Transform _objectsParent;
-        private Transform _canvas;
+        private RectTransform _canvas;
         #endregion
 
         #region Interface
-        public void Initialize(int count, PoolObject sample, Transform objects_parent, Transform canvas)
+        public void Initialize(int count, PoolObject sample, Transform objects_parent, RectTransform canvas)
         {
             _objects = new List<PoolObject>();
             _objectsParent = objects_parent;
@@ -42,7 +42,7 @@ namespace Utils
         #endregion
 
         #region Methods
-        void AddObject(PoolObject sample, Transform objects_parent, Transform canvas)
+        void AddObject(PoolObject sample, Transform objects_parent, RectTransform canvas)
         {
             GameObject temp;
             temp = GameObject.Instantiate(sample.gameObject);

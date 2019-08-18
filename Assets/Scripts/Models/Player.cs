@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Models
 {
+    [Serializable]
     public class Player : IPlayer
     {
         [SerializeField] private List<Artefact> _inventory = new List<Artefact>();
@@ -34,6 +35,12 @@ namespace Models
                 return false;
             }
             return true;
+        }
+
+        public void StartRender()
+        {
+            OnSuccesfullDig?.Invoke(ShovelsCount);
+            OnTakeNewArtefact?.Invoke(CountScoreFromInventory());
         }
 
         public void TakeArtefact(Artefact artefact)

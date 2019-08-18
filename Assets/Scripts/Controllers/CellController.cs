@@ -1,5 +1,5 @@
 ﻿using Models;
-using Utils;
+using UnityEngine;
 
 namespace Controllers
 {
@@ -25,7 +25,8 @@ namespace Controllers
                 _playerController.Dig();
 
                 //Set Randomize
-                _cell.ExploreArtefact(new Artefact(100));
+                if (Random.Range(0,100) < 30)
+                    _cell.ExploreArtefact(new Artefact(Random.Range(50,200)));
             }
         }
         public bool CheckCanDig()

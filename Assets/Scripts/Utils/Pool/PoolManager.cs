@@ -6,6 +6,9 @@ namespace Utils
     {
         private static PoolPart[] _pools;
         private static GameObject _objectsParent;
+        private static bool _initialized;
+
+        public static bool Initialized => _initialized;
 
         [System.Serializable]
         public struct PoolPart
@@ -16,7 +19,7 @@ namespace Utils
             public ObjectPooling ferula;
         }
 
-        public static void Initialize(PoolPart[] newPools, Transform canvas)
+        public static void Initialize(PoolPart[] newPools, RectTransform canvas)
         {
             _pools = newPools;
             _objectsParent = new GameObject();
@@ -29,6 +32,7 @@ namespace Utils
                     _pools[i].ferula.Initialize(_pools[i].count, _pools[i].prefab, _objectsParent.transform, canvas);
                 }
             }
+            _initialized = true;
         }
 
 

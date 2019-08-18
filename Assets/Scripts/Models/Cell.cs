@@ -3,6 +3,7 @@ using System;
 
 namespace Models
 {
+    [Serializable]
     public class Cell : ICell
     {
         [SerializeField] private int _maxDeep;
@@ -27,7 +28,17 @@ namespace Models
 
         public void StartRender()
         {
+            CheckArtefact();
             OnCellChanged?.Invoke(_currentDeep);
+            if (_artefact != null)
+                OnArtefactExplore?.Invoke();
+        }
+
+        private void CheckArtefact()
+        {
+            if (_artefact != null)
+                if (_artefact.Cost == 0)
+                    _artefact = null;
         }
 
         public void Dig()

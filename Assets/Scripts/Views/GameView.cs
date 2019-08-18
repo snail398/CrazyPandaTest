@@ -30,5 +30,13 @@ namespace Views
             _mapView = new SquareMapView();
             _mapView.DrawMap(_cellList);
         }
+        public void StartRender()
+        {
+            foreach (var cellView in _cellList)
+            {
+                cellView.StartRender();
+            }
+            _playerView.StartRender();
+        }
     }
 }

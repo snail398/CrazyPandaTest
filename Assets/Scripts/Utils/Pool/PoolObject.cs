@@ -6,17 +6,17 @@ namespace Utils
     public class PoolObject : MonoBehaviour
     {
         private Transform _poolParent;
-        private Transform _canvas;
+        private RectTransform _canvas;
         private Transform _transform;
 
-        public Transform Canvas  => _canvas; 
+        public RectTransform Canvas  => _canvas; 
         public Transform PoolParent  => _poolParent; 
         private void Awake()
         {
             _transform = transform;
         }
 
-        public void Initialize(Transform canvas, Transform parent)
+        public void Initialize(RectTransform canvas, Transform parent)
         {
             _canvas = canvas;
             _poolParent = parent;

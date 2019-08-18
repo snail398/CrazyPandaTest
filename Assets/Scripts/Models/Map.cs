@@ -4,10 +4,11 @@ using System.Collections.Generic;
 
 namespace Models
 {
+    [Serializable]
     public class Map
     {
-        [SerializeField] private readonly List<Cell> _map = new List<Cell>();
-        [SerializeField] private readonly int _cellCount;
+        [SerializeField] private List<Cell> _map = new List<Cell>();
+        [SerializeField] private int _cellCount;
 
         public List<Cell> MapContents { get => _map; }
         

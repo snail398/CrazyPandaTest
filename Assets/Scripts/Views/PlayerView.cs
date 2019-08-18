@@ -22,7 +22,10 @@ namespace Views
             _playerObservable.OnNotEnoughShovel += ShowError;
             _playerObservable.OnSuccesfullDig += DrawShovelsCount;
             _playerObservable.OnTakeNewArtefact += DrawScore;
-            DrawShovelsCount(_playerController.Player.ShovelsCount);
+        }
+        public void StartRender()
+        {
+            _playerController.StartRender();
         }
 
         private void DrawShovelsCount(int shovelCount)

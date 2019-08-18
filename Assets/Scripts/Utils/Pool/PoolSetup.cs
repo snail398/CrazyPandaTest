@@ -8,7 +8,7 @@ namespace Utils
 
         #region Unity scene settings
         [SerializeField] private PoolManager.PoolPart[] _pools;
-        [SerializeField] private Transform _canvas;
+        [SerializeField] private RectTransform _canvas;
         #endregion
 
         #region Methods

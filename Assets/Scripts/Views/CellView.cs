@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System;
 using Controllers;
 using Models;
 using UnityEngine.UI;
@@ -13,13 +12,13 @@ namespace Views
         private CellController _cellController;
         private ICell _cellObservable;
         private RectTransform _rectTransform;
-        private ArtefactView _artefact;
+        private ArtefactView _artefactView;
 
-        public RectTransform RectTransform { get => _rectTransform; set => _rectTransform = value; }
+        public RectTransform RectTransform  => _rectTransform; 
 
         private void Awake()
         {
-            RectTransform = GetComponent<RectTransform>();
+            _rectTransform = GetComponent<RectTransform>();
         }
 
         public void SetUp(CellController cellController, ICell cell)
@@ -29,10 +28,9 @@ namespace Views
             _cellObservable.OnCellChanged += Draw;
             _cellObservable.OnArtefactExplore += ExploreArtefact;
             _cellObservable.OnArtefactTaked += TakeArtefact;
-            StartRender();
         }
 
-        private void StartRender()
+        public void StartRender()
         {
             _cellController.StartRender();
         }
@@ -49,20 +47,20 @@ namespace Views
 
         private void ExploreArtefact()
         {
-            _artefact = PoolManager.GetObject("ArtefactView").GetComponent<ArtefactView>();
-            if (_artefact != null)
+            _artefactView = PoolManager.GetObject("ArtefactView").GetComponent<ArtefactView>();
+            if (_artefactView != null)
             {
-                _artefact.SetUp(_cellController);
-                _artefact.Explore(RectTransform);
+                _artefactView.SetUp(_cellController);
+                _artefactView.Explore(_rectTransform);
             }
         }
 
         private void TakeArtefact()
         {
-            if (_artefact != null)
+            if (_artefactView != null)
             {
-                _artefact.GetComponent<PoolObject>().ReturnToPool();
-                _artefact = null;
+                _artefactView.GetComponent<PoolObject>().ReturnToPool();
+                _artefactView = null;
             }
         }
 

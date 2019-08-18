@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Views
 {
-    public class SquareMapView : MonoBehaviour, IMapViewStrategy
+    public class SquareMapView: IMapViewStrategy
     {
         public void DrawMap(List<CellView> cellList)
         {
@@ -15,7 +15,7 @@ namespace Views
             foreach (var cellView in cellList)
             {
                 cellView.RectTransform.sizeDelta = cellSize;
-                Vector2 nextPos = new Vector2(-Screen.width / 2 + size * (0.5f + i), -Screen.height / 2 + 200 + size *(0.5f + j));
+                Vector2 nextPos = new Vector2(-Screen.width / 2 + size * (0.5f + i), -Screen.height / 2 + 300 + size *(0.5f + j));
                 cellView.RectTransform.localPosition = nextPos;
                 i++;
                 if (i % rowcount == 0)
