@@ -1,4 +1,5 @@
 ﻿using Models;
+using Utils;
 
 namespace Controllers
 {
@@ -22,12 +23,26 @@ namespace Controllers
             {
                 _cell.Dig();
                 _playerController.Dig();
+
+                //Set Randomize
+                _cell.ExploreArtefact(new Artefact(100));
             }
         }
         public bool CheckCanDig()
         {
             if (_cell == null) return false;
             return _cell.CheckCanDig();
+        }
+
+        public void TakeArtefact()
+        {
+            _playerController.TakeArtefact(_cell.Artefact);
+            _cell.TakeArtefact();
+        }
+
+        public void StartRender()
+        {
+            _cell.StartRender();
         }
     }
 }

@@ -13,6 +13,7 @@ namespace Models
 
         public event Action OnNotEnoughShovel;
         public event Action<int> OnSuccesfullDig;
+        public event Action<int> OnTakeNewArtefact;
 
         public Player(int startShovelsCount)
         {
@@ -33,6 +34,22 @@ namespace Models
                 return false;
             }
             return true;
+        }
+
+        public void TakeArtefact(Artefact artefact)
+        {
+            _inventory.Add(artefact);
+            OnTakeNewArtefact?.Invoke(CountScoreFromInventory());
+        }
+
+        private int CountScoreFromInventory()
+        {
+            int score = 0;
+            foreach (var artefact in _inventory)
+            {
+                score += artefact.Cost;
+            }
+            return score;
         }
     }
 }

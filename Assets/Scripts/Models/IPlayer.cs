@@ -6,5 +6,6 @@ namespace Models
     {
         event Action OnNotEnoughShovel;
         event Action<int> OnSuccesfullDig;
+        event Action<int> OnTakeNewArtefact;
     }
 }

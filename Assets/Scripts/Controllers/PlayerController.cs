@@ -27,5 +27,10 @@ namespace Controllers
             if (_player == null) return; 
             _player.Dig();
         }
+
+        public void TakeArtefact(Artefact artefact)
+        {
+            _player.TakeArtefact(artefact);
+        }
     }
 }

@@ -10,13 +10,13 @@ namespace Models
         [SerializeField] private readonly int _cellCount;
 
         public List<Cell> MapContents { get => _map; }
-
+        
         public Map(int cellCount, int cellDeep)
         {
             _cellCount = cellCount;
             for (int i = 0; i < _cellCount; i++)
             {
-                _map.Add(new Cell(cellDeep));
+                _map.Add(new Cell(cellDeep, 0));
             }
         }
     }
